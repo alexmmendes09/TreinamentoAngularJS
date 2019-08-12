@@ -1,0 +1,52 @@
+<html ng-app="listaTelefonica">
+
+<head>
+    <title>Lista Telefonica</title>
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+    <style>
+        .jumbotron {
+            width: 400px;
+            text-align: center;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+
+    <script src="./lib/angular/angular.js"></script>
+    <script>
+        angular.module("listaTelefonica", []); //cria o modulo, e o debaixo localiza o modulo
+        angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function ($scope) {
+            $scope.app = "Mensagem de listaTelefonica!";
+            $scope.contatos = [
+                { nome: "Pedro", telefone: "99999999" },
+                { nome: "Ana", telefone: "88888888" },
+                { nome: "Maria", telefone: "77777777" }
+
+            ];
+
+        });
+    </script>
+</head>
+
+<body ng-controller="listaTelefonicaCtrl"></body>
+<div class="jumbotron">
+    <h4 ng-bind="app"></h4>
+    <h4>{{app}}</h4>
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+        </tr>
+        <tr ng-repeat="contato in contatos">
+            <td>{{contato.nome}}</td>
+            <td>{{contato.telefone}}</td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+
+</html>
